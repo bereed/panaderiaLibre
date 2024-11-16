@@ -1,7 +1,18 @@
 {
+  "_id": "recipe_basic_sourdough_1_0_0",
+  "metadata": {
+    "recipe_name": "Basic Sourdough",
+    "recipe_type": "Sourdough",
+    "version": "1.0.0",
+    "author": "Your Name or Organization",
+    "created_date": "2024-11-16",
+    "last_updated": "2024-11-16",
+    "description": "A classic sourdough bread recipe with optional inclusions for variety.",
+    "tags": ["sourdough", "bread", "baking", "classic"],
+    "indexed_fields": ["recipe_name", "tags", "version"],
+    "localization_ready": true
+  },
   "bread": {
-    "name": "Basic Sourdough",
-    "type": "Sourdough",
     "ingredients": [
       {
         "name": "Flour",
@@ -54,39 +65,66 @@
         "weight_grams": 50,
         "percentage": 5,
         "notes": "Soak in warm water before adding to prevent drying out the dough."
-      },
-      {
-        "name": "Sunflower Seeds",
-        "weight_grams": 50,
-        "percentage": 5,
-        "notes": "Can be used as a topping or mixed into the dough."
       }
     ],
     "total_weight_grams": 1920,
-    "hydration_percentage": 70,
-    "instructions": {
-      "making": [
-        "Mix all ingredients together until combined.",
-        "If using inclusions, add them during the second stretch and fold.",
-        "Knead the dough for 10 minutes.",
-        "Let the dough rise at room temperature for 4 hours.",
-        "Shape the dough and place it in a proofing basket.",
-        "Proof in the refrigerator overnight.",
-        "Bake at 230°C (450°F) for 30-35 minutes."
-      ],
-      "storage": [
-        "Store the bread in a paper bag at room temperature for up to 2 days.",
-        "For longer storage, wrap tightly in plastic or foil and freeze for up to 1 month."
-      ],
-      "reheating": [
-        "To refresh, heat in an oven at 180°C (350°F) for 10-15 minutes.",
-        "For slices, toast in a toaster or under a broiler until warmed."
-      ],
-      "usage": [
-        "Best served with butter or olive oil as a side to soups and salads.",
-        "Makes excellent sandwiches, especially for grilled cheese or paninis.",
-        "Use stale bread for croutons, breadcrumbs, or bread pudding."
-      ]
+    "hydration_percentage": 70
+  },
+  "nutrition": {
+    "serving_size_grams": 50,
+    "calories": 120,
+    "macros": {
+      "protein_grams": 4,
+      "carbohydrates_grams": 25,
+      "fiber_grams": 1,
+      "fat_grams": 0.5
+    },
+    "micros": {
+      "sodium_mg": 150,
+      "potassium_mg": 20,
+      "iron_mg": 1,
+      "calcium_mg": 5
     }
+  },
+  "allergens": {
+    "contains": [
+      "Wheat (gluten)",
+      "Seeds (if using inclusions like sunflower or pumpkin seeds)"
+    ],
+    "may_contain_traces_of": [
+      "Nuts (cross-contamination from seeds)",
+      "Soy (if processed near soy products)"
+    ],
+    "notes": "Ensure inclusions are sourced from allergen-safe facilities if needed."
+  },
+  "instructions": {
+    "making": [
+      "Mix all ingredients together until combined.",
+      "If using inclusions, add them during the second stretch and fold.",
+      "Knead the dough for 10 minutes.",
+      "Let the dough rise at room temperature for 4 hours.",
+      "Shape the dough and place it in a proofing basket.",
+      "Proof in the refrigerator overnight.",
+      "Bake at 230°C (450°F) for 30-35 minutes."
+    ],
+    "storage": [
+      "Store the bread in a paper bag at room temperature for up to 2 days.",
+      "For longer storage, wrap tightly in plastic or foil and freeze for up to 1 month."
+    ],
+    "reheating": [
+      "To refresh, heat in an oven at 180°C (350°F) for 10-15 minutes.",
+      "For slices, toast in a toaster or under a broiler until warmed."
+    ],
+    "usage": [
+      "Best served with butter or olive oil as a side to soups and salads.",
+      "Makes excellent sandwiches, especially for grilled cheese or paninis.",
+      "Use stale bread for croutons, breadcrumbs, or bread pudding."
+    ]
+  },
+  "api_compatibility": {
+    "endpoint": "/api/recipes/recipe_basic_sourdough_1_0_0",
+    "methods": ["GET", "POST", "PUT", "DELETE"],
+    "response_format": "application/json",
+    "pagination_fields": ["tags", "created_date", "version"]
   }
 }
