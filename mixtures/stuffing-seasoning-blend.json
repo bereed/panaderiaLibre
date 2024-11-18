@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "recipe_name": "Stuffing Seasoning Mix",
+    "version": "1.0.0",
+    "author": "Your Name or Organization",
+    "created_date": "2024-11-16",
+    "last_updated": "2024-11-16",
+    "description": "A flavorful seasoning mix for stuffing made with dried herbs, spices, and bouillon powder. Perfect for sourdough-based stuffing recipes.",
+    "tags": ["seasoning", "stuffing", "mix", "dry blend"]
+  },
+  "ingredients": [
+    { "name": "Sugar", "weight_grams": 30, "notes": "Adds a subtle sweetness to balance flavors." },
+    { "name": "Fine Sea Salt", "weight_grams": 22, "notes": "Enhances all flavors." },
+    { "name": "Dried Minced Onion", "weight_grams": 1.4, "notes": "Contributes a mild onion flavor." },
+    { "name": "Nutritional Yeast", "weight_grams": 5, "notes": "Adds a savory, umami depth to the mix." },
+    { "name": "Chicken Bouillon Powder", "weight_grams": 45, "notes": "Provides a rich, savory base." },
+    { "name": "Dried Chopped Celery", "weight_grams": 14, "notes": "Gives a classic celery flavor to stuffing." },
+    { "name": "Dried Parsley Flakes", "weight_grams": 9, "notes": "Adds herbal freshness to the mix." },
+    { "name": "Sage", "weight_grams": 7.875, "notes": "A traditional herb for stuffing." },
+    { "name": "Marjoram", "weight_grams": 4.5, "notes": "Enhances the herbaceous flavor profile." },
+    { "name": "Rosemary", "weight_grams": 7.875, "notes": "Brings an earthy, pine-like aroma." }
+  ],
+  "instructions": {
+    "mixing": [
+      "Combine all the ingredients in a bowl.",
+      "Whisk or stir thoroughly to ensure even distribution of flavors.",
+      "Store the mix in an airtight container in a cool, dry place."
+    ],
+    "usage": [
+      "Use 15 grams of this mix per 6 oz (170g) of dried sourdough bread cubes for stuffing.",
+      "Mix with butter or broth as needed to enhance flavor."
+    ]
+  },
+  "storage": {
+    "recommendations": [
+      "Store in an airtight container at room temperature.",
+      "Keep away from direct sunlight and moisture.",
+      "Best used within 6 months for optimal flavor."
+    ]
+  },
+  "nutrition": {
+    "serving_size_grams": 15,
+    "calories": 10,
+    "macros": {
+      "protein_grams": 1,
+      "carbohydrates_grams": 2,
+      "fiber_grams": 0,
+      "fat_grams": 0
+    },
+    "micros": {
+      "sodium_mg": 1200,
+      "potassium_mg": 50,
+      "iron_mg": 0.2,
+      "calcium_mg": 10
+    }
+  },
+  "allergens": {
+    "contains": [
+      "Chicken Bouillon Powder (may contain dairy or soy derivatives)"
+    ],
+    "may_contain_traces_of": [
+      "Nuts (if processed in shared facilities)",
+      "Gluten (depending on bouillon source)"
+    ]
+  }
+}
