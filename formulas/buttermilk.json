@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "recipe_name": "Buttermilk Sourdough Formula",
+    "version": "1.0.0",
+    "author": "Panaderia Libre",
+    "created_date": "2024-11-16",
+    "last_updated": "2024-11-16",
+    "description": "A soft and slightly tangy sourdough bread formula enhanced with buttermilk powder and a touch of sweetness.",
+    "tags": ["bread", "sourdough", "buttermilk", "artisan"]
+  },
+  "ingredients": [
+    {
+      "name": "High-Protein Bread Flour",
+      "type": "Organic",
+      "weight_grams": 1000,
+      "notes": "Forms the base of the dough."
+    },
+    {
+      "name": "Water",
+      "type": "Filtered",
+      "weight_grams": 680,
+      "notes": "Provides 68% hydration for the dough."
+    },
+    {
+      "name": "Natural Sourdough Starter",
+      "type": "Fermented",
+      "weight_grams": 200,
+      "notes": "Provides leavening and characteristic sourdough flavor."
+    },
+    {
+      "name": "Sea Salt",
+      "type": "Fine",
+      "weight_grams": 24,
+      "notes": "Enhances flavor and strengthens gluten structure."
+    },
+    {
+      "name": "Sugar",
+      "type": "Granulated",
+      "weight_grams": 50,
+      "notes": "Adds a hint of sweetness."
+    },
+    {
+      "name": "Buttermilk Powder",
+      "type": "Powdered",
+      "weight_grams": 50,
+      "notes": "Adds tanginess and enhances softness."
+    },
+    {
+      "name": "Olive Oil",
+      "type": "Extra Virgin",
+      "weight_grams": 28,
+      "notes": "Adds richness and a subtle nutty flavor."
+    }
+  ],
+  "instructions": {
+    "making": [
+      "Combine the flour, water, sourdough starter, sugar, and buttermilk powder in a large mixing bowl. Let it rest for 30 minutes (autolyse).",
+      "Add salt and olive oil to the mixture and knead until smooth.",
+      "Perform 3-4 sets of stretch-and-folds every 30 minutes during the bulk fermentation (about 4 hours at room temperature).",
+      "Shape the dough as needed (e.g., loaf, boule) and place it in a floured proofing basket or on a tray.",
+      "Cover and cold-proof in the refrigerator overnight (8-12 hours).",
+      "Preheat the oven to 250°C (480°F) with a Dutch oven or baking stone inside.",
+      "Transfer the dough to the preheated surface, score the top, and bake for 20 minutes with steam.",
+      "Reduce the oven temperature to 230°C (450°F) and bake for another 20-25 minutes until golden brown."
+    ]
+  },
+  "hydration": "68%",
+  "notes": "This formula produces a soft sourdough loaf with a subtle tang from the buttermilk.",
+  "versioning": {
+    "current_version": "1.0.0",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2024-11-16",
+        "changes": [
+          "Removed inclusions.",
+          "Increased sugar to 50g.",
+          "Added 50g buttermilk powder.",
+          "Increased salt to 24g."
+        ]
+      }
+    ]
+  }
+}
