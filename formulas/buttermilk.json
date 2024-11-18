@@ -3,6 +3,7 @@
   "sk": "buttermilk-sourdough",
   "metadata": {
     "recipe_name": "Buttermilk Sourdough Formula",
+    "recipe_type": "sourdough",
     "version": "1.0.0",
     "author": "Panaderia Libre",
     "created_date": "2024-11-16",
