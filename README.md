@@ -1,8 +1,3 @@
-Here’s a README.md for your Panaderia Libre Viewer project:
-
-
----
-
 Panaderia Libre Viewer
 
 Welcome to the Panaderia Libre Viewer! This is a lightweight, static web application designed to display recipes and products for formulas, mixtures, and ready-to-make products. It supports dynamically loading JSON files containing metadata, ingredients, and instructions for various recipes.
@@ -172,9 +167,3 @@ Feedback
 If you encounter issues or have suggestions, feel free to open an issue in the repository.
 
 Happy baking with Panaderia Libre Viewer! 🥖
-
-
----
-
-This README is designed to give users everything they need to understand, use, and contribute to your project. Let me know if you need any changes!
-
