@@ -1,5 +1,6 @@
 {
-  "_id": "recipe_basic_sourdough_1_0_0",
+  "pk": "formula-collection",
+  "sk", "basic-sourdough",
   "metadata": {
     "recipe_name": "Basic Sourdough",
     "recipe_type": "Sourdough",
