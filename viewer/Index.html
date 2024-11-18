@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bread Formula Viewer</title>
+  <title>Panaderia Libre Viewer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
       padding: 20px;
       background-color: #f9f9f9;
     }
-    h1 {
+    h1, h2 {
       color: #333;
     }
     .container {
@@ -25,19 +25,19 @@
     .section {
       margin-bottom: 20px;
     }
-    .section h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-      color: #555;
+    ul {
+      list-style: none;
+      padding: 0;
     }
-    .ingredient, .yeast, .inclusion {
-      margin: 5px 0;
+    li {
+      margin: 10px 0;
     }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
+    a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     .error {
       color: red;
@@ -47,82 +47,69 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="recipe-name">Loading...</h1>
-    <div id="recipe-content">
-      <p class="error" id="error-message" style="display: none;">Error loading formula. Please check the URL.</p>
+    <h1 id="page-title">Panaderia Libre Viewer</h1>
+    <div id="content">
+      <p>Loading...</p>
     </div>
   </div>
 
   <script>
-    // Get the formula URL from query parameters
+    const BASE_URL = "https://bereed.github.io/panaderiaLibre";
+
+    // Directory structure to list
+    const directories = [
+      { name: "Formulas", path: "/formulas/" },
+      { name: "Products", path: "/products/" },
+      { name: "Mixtures", path: "/mixtures/" }
+    ];
+
     const urlParams = new URLSearchParams(window.location.search);
-    const formulaUrl = "https://bereed.github.io/panaderiaLibre/formulas/Recipe1.json";
-
-    // Function to render the formula data
-    function renderFormula(data) {
-      const recipeName = data.metadata.recipe_name || "Unknown Recipe";
-      document.getElementById("recipe-name").innerText = recipeName;
-
-      const recipeContent = document.getElementById("recipe-content");
-      recipeContent.innerHTML = `
-        <div class="section">
-          <h2>Metadata</h2>
-          <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
-          <p><strong>Version:</strong> ${data.metadata.version}</p>
-          <p><strong>Description:</strong> ${data.metadata.description}</p>
-        </div>
-        <div class="section">
-          <h2>Ingredients</h2>
-          ${data.bread.ingredients.map(ingredient => `
-            <div class="ingredient">
-              <strong>${ingredient.name}:</strong> ${ingredient.weight_grams}g (${ingredient.percentage}%)
-            </div>`).join('')}
-        </div>
-        <div class="section">
-          <h2>Instructions</h2>
-          ${data.instructions.making.map((step, index) => `
-            <p><strong>Step ${index + 1}:</strong> ${step}</p>`).join('')}
-        </div>
-        <div class="section">
-          <h2>Nutrition</h2>
-          <p><strong>Serving Size:</strong> ${data.nutrition.serving_size_grams}g</p>
-          <p><strong>Calories:</strong> ${data.nutrition.calories}</p>
-          <p><strong>Protein:</strong> ${data.nutrition.macros.protein_grams}g</p>
-          <p><strong>Carbohydrates:</strong> ${data.nutrition.macros.carbohydrates_grams}g</p>
-          <p><strong>Fiber:</strong> ${data.nutrition.macros.fiber_grams}g</p>
-          <p><strong>Fat:</strong> ${data.nutrition.macros.fat_grams}g</p>
-        </div>
-        <div class="section">
-          <h2>Allergens</h2>
-          <p><strong>Contains:</strong> ${data.allergens.contains.join(", ")}</p>
-          <p><strong>May Contain Traces Of:</strong> ${data.allergens.may_contain_traces_of.join(", ")}</p>
-        </div>
-      `;
-    }
+    const formulaUrl = urlParams.get('formula');
 
     if (formulaUrl) {
-      console.log("Fetching formula from:", formulaUrl);
-
+      // Fetch and display a specific formula
       fetch(formulaUrl)
         .then(response => {
-          if (!response.ok) {
-            throw new Error(`Failed to fetch formula. Status: ${response.status}`);
-          }
+          if (!response.ok) throw new Error(`Failed to fetch formula. Status: ${response.status}`);
           return response.json();
         })
         .then(data => {
-          console.log("Loaded formula data:", data);
-          renderFormula(data);
+          document.getElementById("page-title").innerText = data.metadata.recipe_name || "Unknown Recipe";
+          document.getElementById("content").innerHTML = `
+            <div class="section">
+              <h2>Metadata</h2>
+              <p><strong>Recipe Name:</strong> ${data.metadata.recipe_name}</p>
+              <p><strong>Version:</strong> ${data.metadata.version}</p>
+              <p><strong>Description:</strong> ${data.metadata.description}</p>
+            </div>
+            <div class="section">
+              <h2>Ingredients</h2>
+              ${data.ingredients.map(ingredient => `
+                <p><strong>${ingredient.name}:</strong> ${ingredient.weight_grams || "N/A"}g (${ingredient.notes || "No notes"})</p>
+              `).join('')}
+            </div>
+            <div class="section">
+              <h2>Instructions</h2>
+              ${data.instructions.preparation.map((step, index) => `
+                <p><strong>Step ${index + 1}:</strong> ${step}</p>
+              `).join('')}
+            </div>
+          `;
         })
         .catch(error => {
-          document.getElementById("error-message").style.display = "block";
-          document.getElementById("error-message").innerText = `Error: ${error.message}`;
-          console.error("Error loading formula:", error);
+          document.getElementById("content").innerHTML = `<p class="error">Error loading the formula: ${error.message}</p>`;
         });
     } else {
-      document.getElementById("recipe-name").innerText = "No formula specified.";
-      document.getElementById("error-message").style.display = "block";
-      document.getElementById("error-message").innerText = "No formula URL provided.";
+      // Display directory listing
+      document.getElementById("page-title").innerText = "Available Recipes";
+      document.getElementById("content").innerHTML = directories.map(dir => `
+        <div class="section">
+          <h2>${dir.name}</h2>
+          <ul>
+            <li><a href="${BASE_URL}${dir.path}">View all ${dir.name.toLowerCase()}</a></li>
+          </ul>
+        </div>
+      `).join('');
     }
   </script>
 </body>
