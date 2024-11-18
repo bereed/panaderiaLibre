@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "recipe_name": "Stovetop Sourdough Stuffing",
+    "version": "1.1.0",
+    "author": "Your Name or Organization",
+    "created_date": "2024-11-16",
+    "last_updated": "2024-11-16",
+    "description": "A ready-to-make stovetop stuffing mix made with dried sourdough bread cubes and a flavorful seasoning blend. Just add boiling water and butter!",
+    "tags": ["stuffing", "sourdough", "stovetop", "ready-to-make"]
+  },
+  "ingredients": [
+    {
+      "name": "Dried Sourdough Bread Cubes",
+      "type": "Pre-Packaged",
+      "weight_grams": 170,
+      "notes": "Pre-cut and dried sourdough bread cubes."
+    },
+    {
+      "name": "Stuffing Seasoning Mix",
+      "type": "Pre-Packaged",
+      "weight_grams": 15,
+      "notes": "Includes a balanced blend of dried herbs, spices, and bouillon powder."
+    }
+  ],
+  "instructions": {
+    "preparation": [
+      "Bring 1.5 cups (360 mL) of water to a boil in a medium saucepan.",
+      "Remove the saucepan from heat and stir in 2 tablespoons (28g) of melted butter (not included).",
+      "Add the entire contents of the stuffing mix package (bread cubes and seasoning) to the saucepan.",
+      "Stir well to combine, ensuring all bread cubes are moistened.",
+      "Cover the saucepan and let it sit for 5 minutes.",
+      "Fluff with a fork before serving."
+    ],
+    "storage": [
+      "Keep the product in its original packaging in a cool, dry place.",
+      "Once prepared, refrigerate leftovers in an airtight container for up to 3 days."
+    ]
+  },
+  "product_details": {
+    "package_weight_grams": 185,
+    "servings": 4,
+    "preparation_time_minutes": 10,
+    "required_ingredients": "1.5 cups (360 mL) boiling water, 2 tablespoons (28g) melted butter"
+  },
+  "nutrition": {
+    "serving_size_grams": 150,
+    "calories": 230,
+    "macros": {
+      "protein_grams": 7,
+      "carbohydrates_grams": 25,
+      "fiber_grams": 2,
+      "fat_grams": 5
+    },
+    "micros": {
+      "sodium_mg": 900,
+      "potassium_mg": 180,
+      "iron_mg": 1.4,
+      "calcium_mg": 45
+    }
+  },
+  "allergens": {
+    "contains": [
+      "Wheat (sourdough bread)",
+      "Chicken (bouillon powder in the seasoning mix)"
+    ],
+    "may_contain_traces_of": [
+      "Soy (if bouillon contains soy derivatives)",
+      "Nuts (if processed in shared facilities)"
+    ]
+  }
+}
