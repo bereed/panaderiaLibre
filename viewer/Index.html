@@ -72,32 +72,37 @@
     const formulaUrl = urlParams.get('formula');
 
     if (formulaUrl) {
-      // Fetch and display a specific formula
+      // Fetch and display a specific formula or product
       fetch(formulaUrl)
         .then(response => {
           if (!response.ok) throw new Error(`Failed to fetch formula. Status: ${response.status}`);
           return response.json();
         })
         .then(data => {
-          document.getElementById("page-title").innerText = data.metadata.recipe_name || "Unknown Recipe";
+          const pk = data.pk || "N/A";
+          const sk = data.sk || "N/A";
+
+          document.getElementById("page-title").innerText = data.metadata.recipe_name || data.metadata.product_name || "Unknown Recipe";
           document.getElementById("content").innerHTML = `
             <div class="section">
               <h2>Metadata</h2>
-              <p><strong>Recipe Name:</strong> ${data.metadata.recipe_name}</p>
+              <p><strong>Recipe/Product Name:</strong> ${data.metadata.recipe_name || data.metadata.product_name}</p>
+              <p><strong>Primary Key (PK):</strong> ${pk}</p>
+              <p><strong>Sort Key (SK):</strong> ${sk}</p>
               <p><strong>Version:</strong> ${data.metadata.version}</p>
               <p><strong>Description:</strong> ${data.metadata.description}</p>
             </div>
             <div class="section">
               <h2>Ingredients</h2>
-              ${data.ingredients.map(ingredient => `
+              ${data.ingredients?.map(ingredient => `
                 <p><strong>${ingredient.name}:</strong> ${ingredient.weight_grams || "N/A"}g (${ingredient.notes || "No notes"})</p>
-              `).join('')}
+              `).join('') || "<p>No ingredients listed.</p>"}
             </div>
             <div class="section">
               <h2>Instructions</h2>
-              ${data.instructions.preparation.map((step, index) => `
+              ${data.instructions?.preparation?.map((step, index) => `
                 <p><strong>Step ${index + 1}:</strong> ${step}</p>
-              `).join('')}
+              `).join('') || "<p>No instructions provided.</p>"}
             </div>
           `;
         })
