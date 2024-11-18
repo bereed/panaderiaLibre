@@ -1,4 +1,6 @@
 {
+  "pk": "product-collection",
+  "sk": "basic-sourdough",
   "metadata": {
     "product_name": "Sourdough Bread Products",
     "version": "1.0.0",
