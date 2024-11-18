@@ -3,6 +3,7 @@
   "sk": "stuffing-seasoning-mix",
   "metadata": {
     "recipe_name": "Stuffing Seasoning Mix",
+    "recipe_type": "mixture",
     "version": "1.0.0",
     "author": "Your Name or Organization",
     "created_date": "2024-11-16",
