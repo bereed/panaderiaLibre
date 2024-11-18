@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "recipe_name": "Chocolate Tart Cherry Sourdough Formula",
+    "version": "1.0.0",
+    "author": "Panaderia Libre",
+    "created_date": "2024-11-16",
+    "last_updated": "2024-11-16",
+    "description": "A rich sourdough bread formula enhanced with chocolate, dried tart cherries, and a hint of sweetness.",
+    "tags": ["bread", "sourdough", "chocolate", "cherry", "artisan"]
+  },
+  "ingredients": [
+    {
+      "name": "High-Protein Bread Flour",
+      "type": "Organic",
+      "weight_grams": 1000,
+      "notes": "Forms the base of the dough."
+    },
+    {
+      "name": "Water",
+      "type": "Filtered",
+      "weight_grams": 710,
+      "notes": "Provides 71% hydration for the dough."
+    },
+    {
+      "name": "Natural Sourdough Starter",
+      "type": "Fermented",
+      "weight_grams": 200,
+      "notes": "Provides leavening and characteristic sourdough flavor."
+    },
+    {
+      "name": "Sea Salt",
+      "type": "Fine",
+      "weight_grams": 20,
+      "notes": "Enhances flavor and strengthens gluten structure."
+    },
+    {
+      "name": "Sugar",
+      "type": "Granulated",
+      "weight_grams": 40,
+      "notes": "Adds subtle sweetness to balance the tart cherries and chocolate."
+    },
+    {
+      "name": "Butter",
+      "type": "Softened",
+      "weight_grams": 28,
+      "notes": "Adds richness to the dough."
+    },
+    {
+      "name": "Dark Chocolate",
+      "type": "60%",
+      "weight_grams": 140,
+      "notes": "Chopped or chips for even distribution."
+    },
+    {
+      "name": "Dried Tart Cherries",
+      "type": "Unsweetened",
+      "weight_grams": 140,
+      "notes": "Adds tangy bursts of flavor."
+    }
+  ],
+  "instructions": {
+    "making": [
+      "Combine the flour, water, sourdough starter, and sugar in a large mixing bowl. Let it rest for 30 minutes (autolyse).",
+      "Add salt and softened butter to the mixture and knead until smooth.",
+      "Perform 3-4 sets of stretch-and-folds every 30 minutes during the bulk fermentation (about 4 hours at room temperature).",
+      "Gently fold in the chopped chocolate and dried tart cherries during the final stretch-and-fold.",
+      "Shape the dough as needed (e.g., loaf, boule) and place it in a floured proofing basket or on a tray.",
+      "Cover and cold-proof in the refrigerator overnight (8-12 hours).",
+      "Preheat the oven to 250°C (480°F) with a Dutch oven or baking stone inside.",
+      "Transfer the dough to the preheated surface, score the top, and bake for 20 minutes with steam.",
+      "Reduce the oven temperature to 230°C (450°F) and bake for another 20-25 minutes until golden brown."
+    ]
+  },
+  "hydration": "71%",
+  "notes": "This formula works well for enriched sourdough loaves, balancing sweetness with tangy cherries and rich chocolate.",
+  "versioning": {
+    "current_version": "1.0.0",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2024-11-16",
+        "changes": ["Initial release."]
+      }
+    ]
+  }
+}
