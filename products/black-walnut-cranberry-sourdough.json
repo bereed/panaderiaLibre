@@ -1,0 +1,70 @@
+{
+  "pk": "product-collection",
+  "sk": "black-walnut-cranberry-sourdough",
+  "metadata": {
+    "product_name": "Black Walnut Cranberry Sourdough Products",
+    "version": "1.0.0",
+    "author": "Panaderia Libre",
+    "created_date": "2024-11-16",
+    "last_updated": "2024-11-16",
+    "description": "A selection of sourdough bread products enriched with black walnuts, dried cranberries, and olive oil, available in various sizes.",
+    "tags": ["bread", "sourdough", "cranberry", "walnut", "artisan"]
+  },
+  "products": [
+    {
+      "type": "Regular Loaf",
+      "weight_grams": 500,
+      "price": 7.99,
+      "bulk_discount": {
+        "min_quantity": 5,
+        "price_per_unit": 6.99
+      },
+      "dimensions_cm": [20, 12, 8],
+      "packaging": {
+        "material": "Recyclable paper bag with plastic window",
+        "notes": "Designed to showcase the bread while maintaining freshness."
+      },
+      "stock": 40
+    },
+    {
+      "type": "Large Loaf",
+      "weight_grams": 1000,
+      "price": 10.99,
+      "bulk_discount": {
+        "min_quantity": 5,
+        "price_per_unit": 9.99
+      },
+      "dimensions_cm": [30, 15, 10],
+      "packaging": {
+        "material": "Recyclable paper bag with plastic window",
+        "notes": "Eco-friendly packaging for larger loaves."
+      },
+      "stock": 20
+    },
+    {
+      "type": "Mini Loaf",
+      "weight_grams": 250,
+      "price": 4.99,
+      "bulk_discount": {
+        "min_quantity": 5,
+        "price_per_unit": 4.49
+      },
+      "dimensions_cm": [15, 10, 5],
+      "packaging": {
+        "material": "Recyclable paper bag",
+        "notes": "Perfect for single servings or gifts."
+      },
+      "stock": 50
+    }
+  ],
+  "versioning": {
+    "current_version": "1.0.0",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2024-11-16",
+        "changes": ["Initial release with regular, large, and mini loaf options."]
+      }
+    ]
+  }
+}
