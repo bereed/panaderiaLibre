@@ -46,18 +46,16 @@
         "percentage": 2.8
       },
       {
-        "yeast": [
-          {
-            "name": "Instant Yeast",
-            "weight_grams": 5,
-            "percentage": 0.5
-          },
-          {
-            "name": "Active Dry Yeast",
-            "weight_grams": 7,
-            "percentage": 0.7
-          }
-        ]
+        "name": "Instant Yeast",
+        "type": "Yeast",
+        "weight_grams": 5,
+        "percentage": 0.5
+      },
+      {
+        "name": "Active Dry Yeast",
+        "type": "Yeast",
+        "weight_grams": 7,
+        "percentage": 0.7
       },
       {
         "inclusions": [
