@@ -30,36 +30,20 @@ h2 {
   margin-top: 20px;
   border-bottom: 2px solid #007BFF;
   padding-bottom: 5px;
-  cursor: pointer;
 }
 
-h2::after {
-  content: " ▼"; /* Down arrow for collapsed sections */
-  font-size: 0.8em;
-  color: #555;
-}
-
-h2.collapsed::after {
-  content: " ►"; /* Right arrow for expanded sections */
-}
-
-/* Collapsible Section */
-.section {
-  margin-bottom: 20px;
-  overflow: hidden;
-  max-height: 0; /* Start collapsed */
-  transition: max-height 0.3s ease-out;
-}
-
-.section.visible {
-  max-height: 1000px; /* Arbitrary high value to fully expand */
-}
-
-/* Paragraph Styles */
-.section p {
-  margin: 5px 0;
+p {
   font-size: 1.1em;
   color: #555;
+}
+
+/* Metadata Section */
+.section {
+  margin-bottom: 20px;
+}
+
+.section p {
+  margin: 5px 0;
 }
 
 /* Lists */

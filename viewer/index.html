@@ -191,19 +191,6 @@
           console.error(error);
         });
     }
-
-    // Collapsible section logic
-    document.addEventListener("DOMContentLoaded", () => {
-      const sectionHeaders = document.querySelectorAll("h2");
-
-      sectionHeaders.forEach(header => {
-        header.addEventListener("click", () => {
-          const section = header.nextElementSibling;
-          header.classList.toggle("collapsed");
-          section.classList.toggle("visible");
-        });
-      });
-    });
   </script>
 </body>
 </html>
