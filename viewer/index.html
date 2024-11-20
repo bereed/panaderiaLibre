@@ -25,100 +25,59 @@
   </div>
 
   <script>
-    // Fetch recipes.json and render the recipe list
-    async function loadRecipes() {
-      try {
-        const response = await fetch('./recipes.json');
-        if (!response.ok) throw new Error(`Failed to load recipes: ${response.statusText}`);
-        const recipes = await response.json();
+    const urlParams = new URLSearchParams(window.location.search);
+    const formulaUrl = urlParams.get("formula");
 
-        // Populate the recipe list
-        renderRecipeList(recipes);
-      } catch (error) {
-        console.error(error);
-        document.getElementById("content").innerHTML = `<p class="error">Error loading recipes: ${error.message}</p>`;
-      }
-    }
+    function renderFormula(data) {
+      const recipeName = data.metadata?.recipe_name || "Unknown Recipe";
+      document.getElementById("recipe-name").innerText = recipeName;
 
-    function renderRecipeList(recipes) {
-      const recipesContainer = document.getElementById("recipes");
-      recipesContainer.innerHTML = "";
-
-      Object.keys(recipes).forEach(category => {
-        const section = document.createElement("div");
-        section.className = "section";
-        section.innerHTML = `<h2>${capitalize(category)}</h2><ul id="${category}-list"></ul>`;
-        recipesContainer.appendChild(section);
-
-        const list = document.getElementById(`${category}-list`);
-        recipes[category].forEach(recipe => {
-          const listItem = document.createElement("li");
-          listItem.innerHTML = `<a href="#" data-url="${recipe.url}">${recipe.name}</a>`;
-          list.appendChild(listItem);
-        });
-      });
-
-      // Add event listeners for links
-      document.querySelectorAll("#recipes a").forEach(link => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          loadRecipe(e.target.dataset.url);
-        });
-      });
-    }
-
-    async function loadRecipe(url) {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Failed to load recipe: ${response.statusText}`);
-        const recipe = await response.json();
-
-        // Render the recipe details
-        renderRecipeDetails(recipe);
-      } catch (error) {
-        console.error(error);
-        document.getElementById("recipe-content").innerHTML = `<p class="error">Error loading recipe: ${error.message}</p>`;
-      }
-    }
-
-    function renderRecipeDetails(recipe) {
-      document.getElementById("recipes").style.display = "none";
-      document.getElementById("recipe-details").style.display = "block";
-
-      const metadata = recipe.metadata || {};
-      document.getElementById("recipe-name").innerText = metadata.recipe_name || "Unknown Recipe";
-      document.getElementById("recipe-content").innerHTML = `
+      const recipeContent = document.getElementById("recipe-content");
+      recipeContent.innerHTML = `
         <div class="section">
           <h2>Metadata</h2>
-          <p><strong>Recipe/Product Name:</strong> ${metadata.recipe_name || "N/A"}</p>
-          <p><strong>Description:</strong> ${metadata.description || "No description available."}</p>
+          <p><strong>Type:</strong> ${data.metadata?.recipe_type || "N/A"}</p>
+          <p><strong>Version:</strong> ${data.metadata?.version || "N/A"}</p>
+          <p><strong>Description:</strong> ${data.metadata?.description || "No description available."}</p>
         </div>
         <div class="section">
           <h2>Ingredients</h2>
-          ${recipe.ingredients?.map(ingredient => `
-            <p><strong>${ingredient.name}:</strong> ${ingredient.weight_grams || "N/A"}g (${ingredient.notes || "No notes"})</p>
-          `).join('') || "<p>No ingredients listed.</p>"}
-        </div>
-        <div class="section">
-          <h2>Instructions</h2>
-          ${recipe.instructions?.preparation?.map((step, index) => `
-            <p><strong>Step ${index + 1}:</strong> ${step}</p>
-          `).join('') || "<p>No instructions provided.</p>"}
+          ${data.bread?.ingredients?.map(ingredient => `
+            <div class="ingredient">
+              <strong>${ingredient.name}:</strong> ${ingredient.weight_grams}g (${ingredient.percentage || 0}%)
+            </div>
+          `).join("") || "<p>No ingredients listed.</p>"}
         </div>
       `;
     }
 
-    document.getElementById("back-button").addEventListener("click", () => {
-      document.getElementById("recipes").style.display = "block";
-      document.getElementById("recipe-details").style.display = "none";
-    });
+    if (formulaUrl) {
+      console.log("Fetching formula from:", formulaUrl);
+      const fetchUrl = formulaUrl.startsWith("http")
+        ? formulaUrl
+        : `${window.location.origin}/${formulaUrl}`;
 
-    function capitalize(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
+      fetch(fetchUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch formula. Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("Loaded formula data:", data);
+          renderFormula(data);
+        })
+        .catch(error => {
+          document.getElementById("error-message").style.display = "block";
+          document.getElementById("error-message").innerText = `Error: ${error.message}`;
+          console.error("Error loading formula:", error);
+        });
+    } else {
+      document.getElementById("recipe-name").innerText = "No formula specified.";
+      document.getElementById("error-message").style.display = "block";
+      document.getElementById("error-message").innerText = "No formula URL provided.";
     }
-
-    // Initialize the viewer
-    loadRecipes();
   </script>
 </body>
 </html>
