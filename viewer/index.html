@@ -76,7 +76,44 @@
               </div>
             `;
 
-            content.innerHTML = metadata + ingredients + instructions;
+            const storage = `
+              <div class="section">
+                <h2>Storage</h2>
+                ${data.instructions.storage.map(rec => `<p>${rec}</p>`).join('')}
+              </div>
+            `;
+
+            const reheating = `
+              <div class="section">
+                <h2>Reheating</h2>
+                ${data.instructions.reheating.map(rec => `<p>${rec}</p>`).join('')}
+              </div>
+            `;
+
+            const usage = `
+              <div class="section">
+                <h2>Usage</h2>
+                ${data.instructions.usage.map(rec => `<p>${rec}</p>`).join('')}
+              </div>
+            `;
+
+            const versioning = `
+              <div class="section">
+                <h2>Versioning</h2>
+                <p><strong>Current Version:</strong> ${data.versioning.current_version}</p>
+                <h3>Changelog</h3>
+                ${data.versioning.changelog.map(change => `
+                  <div>
+                    <p><strong>Version ${change.version} (${change.date}):</strong></p>
+                    <ul>
+                      ${change.changes.map(entry => `<li>${entry}</li>`).join('')}
+                    </ul>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+
+            content.innerHTML = metadata + ingredients + instructions + storage + reheating + usage + versioning;
 
           } else if (data.pk === "product-collection") {
             // Product View
