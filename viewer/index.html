@@ -37,6 +37,8 @@
         .catch(error => console.error('Service Worker registration failed:', error));
     }
 
+    const backToIndexLink = `<p><a href="https://bereed.github.io/panaderiaLibre/viewer/">Back to Index</a></p>`;
+
     const urlParams = new URLSearchParams(window.location.search);
     const dataUrl = urlParams.get('data');
 
@@ -55,6 +57,9 @@
             // Formula View
             nameElement.innerText = data.metadata.recipe_name || "Unknown Formula";
             content.innerHTML = `
+              <div class="section">
+                ${backToIndexLink}
+              </div>
               <div class="section">
                 <h2>Metadata</h2>
                 <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
@@ -89,11 +94,17 @@
                 <h2>Usage</h2>
                 ${data.instructions.usage.map(line => `<p>${line}</p>`).join('')}
               </div>
+              <div class="section">
+                ${backToIndexLink}
+              </div>
             `;
           } else if (data.pk === "product-collection") {
             // Product View
             nameElement.innerText = data.metadata.product_name || "Unknown Product";
             content.innerHTML = `
+              <div class="section">
+                ${backToIndexLink}
+              </div>
               <div class="section">
                 <h2>Metadata</h2>
                 <p><strong>Author:</strong> ${data.metadata.author}</p>
@@ -117,11 +128,17 @@
                   </div>
                 `).join('')}
               </div>
+              <div class="section">
+                ${backToIndexLink}
+              </div>
             `;
           } else if (data.pk === "mixture-collection") {
             // Mixture View
             nameElement.innerText = data.metadata.recipe_name || "Unknown Mixture";
             content.innerHTML = `
+              <div class="section">
+                ${backToIndexLink}
+              </div>
               <div class="section">
                 <h2>Ingredients</h2>
                 ${data.ingredients.map(ingredient => `
@@ -131,6 +148,9 @@
               <div class="section">
                 <h2>Instructions</h2>
                 ${data.instructions.mixing.map((step, index) => `<p><strong>Step ${index + 1}:</strong> ${step}</p>`).join('')}
+              </div>
+              <div class="section">
+                ${backToIndexLink}
               </div>
             `;
           } else {
