@@ -77,6 +77,7 @@
             `;
 
             content.innerHTML = metadata + ingredients + instructions;
+
           } else if (data.pk === "product-collection") {
             // Product View
             nameElement.innerText = data.metadata.product_name || "Unknown Product";
@@ -112,6 +113,65 @@
             `;
 
             content.innerHTML = metadata + products;
+
+          } else if (data.pk === "mixture-collection") {
+            // Mixture View
+            nameElement.innerText = data.metadata.recipe_name || "Unknown Mixture";
+
+            const metadata = `
+              <div class="section">
+                <h2>Metadata</h2>
+                <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
+                <p><strong>Author:</strong> ${data.metadata.author}</p>
+                <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
+                <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
+                <p><strong>Description:</strong> ${data.metadata.description}</p>
+                <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
+              </div>
+            `;
+
+            const ingredients = `
+              <div class="section">
+                <h2>Ingredients</h2>
+                ${data.ingredients.map(ingredient => `
+                  <div class="ingredient">
+                    <strong>${ingredient.name}:</strong> 
+                    ${ingredient.weight_grams}g <em>${ingredient.notes}</em>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+
+            const instructions = `
+              <div class="section">
+                <h2>Instructions</h2>
+                ${data.instructions.mixing.map((step, index) => `
+                  <p><strong>Step ${index + 1}:</strong> ${step}</p>
+                `).join('')}
+                <h3>Usage</h3>
+                ${data.instructions.usage.map((step, index) => `
+                  <p><strong>Usage ${index + 1}:</strong> ${step}</p>
+                `).join('')}
+              </div>
+            `;
+
+            const storage = `
+              <div class="section">
+                <h2>Storage</h2>
+                ${data.storage.recommendations.map(rec => `<p>${rec}</p>`).join('')}
+              </div>
+            `;
+
+            const allergens = `
+              <div class="section">
+                <h2>Allergens</h2>
+                <p><strong>Contains:</strong> ${data.allergens.contains.join(', ')}</p>
+                <p><strong>May Contain Traces Of:</strong> ${data.allergens.may_contain_traces_of.join(', ')}</p>
+              </div>
+            `;
+
+            content.innerHTML = metadata + ingredients + instructions + storage + allergens;
+
           } else {
             nameElement.innerText = "Unsupported Data Type";
             content.innerHTML = `<p class="error">The data type is not recognized.</p>`;
