@@ -3,7 +3,7 @@
   "sk": "buttermilk-sourdough",
   "metadata": {
     "recipe_name": "Buttermilk Sourdough Formula",
-    "recipe_type": "sourdough",
+    "recipe_type": "Sourdough",
     "author": "Panaderia Libre",
     "created_date": "2024-11-16",
     "last_updated": "2024-11-16",
@@ -35,7 +35,8 @@
       {
         "name": "Sea Salt",
         "type": "Fine",
-        "weight_grams": 24
+        "weight_grams": 24,
+        "percentage": 2.4
       },
       {
         "name": "Sugar",
@@ -66,18 +67,16 @@
         "type": "Yeast",
         "weight_grams": 7,
         "percentage": 0.7
-      },
-      {
-        "inclusions": []
       }
-    ]
+    ],
+    "inclusions": []
   },
   "total_weight_grams": 1932,
   "hydration_percentage": 68,
   "allergens": {
     "contains": [
       "Wheat (gluten)",
-      "Dairy"
+      "Dairy (buttermilk powder)"
     ],
     "may_contain_traces_of": [
       "Nuts (cross-contamination from seeds)"
@@ -86,26 +85,39 @@
   },
   "instructions": {
     "making": [
-      "Combine the flour, water, sourdough starter, sugar, and buttermilk powder in a large mixing bowl. Let it rest for 30 minutes (autolyse).",
-      "Add salt and olive oil to the mixture and knead until smooth.",
+      "Combine the flour, water, preferment, sugar, and buttermilk powder in a large mixing bowl. Let it rest for 30 minutes (autolyse).",
+      "Add sea salt and olive oil to the mixture and knead until smooth.",
       "Perform 3-4 sets of stretch-and-folds every 30 minutes during the bulk fermentation (about 4 hours at room temperature).",
       "Shape the dough as needed (e.g., loaf, boule) and place it in a floured proofing basket or on a tray.",
       "Cover and cold-proof in the refrigerator overnight (8-12 hours).",
       "Preheat the oven to 250°C (480°F) with a Dutch oven or baking stone inside.",
       "Transfer the dough to the preheated surface, score the top, and bake for 20 minutes with steam.",
       "Reduce the oven temperature to 230°C (450°F) and bake for another 20-25 minutes until golden brown."
+    ],
+    "storage": [
+      "Store the bread in a paper bag at room temperature for up to 2 days.",
+      "For longer storage, wrap tightly in plastic or foil and freeze for up to 1 month."
+    ],
+    "reheating": [
+      "To refresh, heat in an oven at 180°C (350°F) for 10-15 minutes.",
+      "For slices, toast in a toaster or under a broiler until warmed."
+    ],
+    "usage": [
+      "Ideal for breakfast with butter, jam, or honey.",
+      "Pairs well with savory soups or stews.",
+      "Use stale slices for French toast or bread pudding."
     ]
-  },  "versioning": {
+  },
+  "versioning": {
     "current_version": "1.0.0",
     "changelog": [
       {
         "version": "1.0.0",
         "date": "2024-11-16",
         "changes": [
-          "Removed inclusions.",
-          "Increased sugar to 50g.",
-          "Added 50g buttermilk powder.",
-          "Increased salt to 24g."
+          "Added buttermilk powder for enhanced flavor.",
+          "Adjusted hydration to 68%.",
+          "Increased sugar to 50g for subtle sweetness."
         ]
       }
     ]

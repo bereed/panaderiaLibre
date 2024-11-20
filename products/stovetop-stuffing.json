@@ -2,7 +2,7 @@
   "pk": "product-collection",
   "sk": "stovetop-sourdough-stuffing",
   "metadata": {
-    "recipe_name": "Stovetop Sourdough Stuffing",
+    "product_name": "Stovetop Sourdough Stuffing",
     "author": "Panaderia Libre",
     "created_date": "2024-11-16",
     "last_updated": "2024-11-16",
@@ -11,80 +11,20 @@
     "indexed_fields": ["product_name", "tags", "version"],
     "localization_ready": true
   },
-  "pricing": {
-    "currency": "USD",
-    "price": 4.99,
-    "unit": "package",
-    "discounts": [
-      {
-        "type": "bulk",
+  "products": [
+    {
+      "type": "Stuffing Mix Package",
+      "price": 4.99,
+      "weight_grams": 185,
+      "dimensions_cm": [20, 15, 5],
+      "packaging": "Sealed plastic pouch made from Polyethylene (PE) and Nylon (PA)",
+      "bulk_discount": {
         "min_quantity": 5,
         "price_per_unit": 3.99
-      }
-    ]
-  },
-  "packaging": {
-    "weight_grams": 185,
-    "dimensions_cm": [20, 15, 5],
-    "material": {
-      "type": "Sealed Plastic Pouch",
-      "composition": ["Polyethylene (PE)", "Nylon (PA)"],
-      "recyclable": false,
-      "notes": "Sealed to maintain freshness but not vacuum-sealed."
-    },
-    "barcode": "0123456789123"
-  },
-  "inventory": {
-    "stock": 120,
-    "availability": "In Stock"
-  },
-  "ingredients": [
-    {
-      "name": "Dried Sourdough Bread Cubes",
-      "type": "Pre-Packaged",
-      "weight_grams": 170,
-      "notes": "Pre-cut and dried sourdough bread cubes."
-    },
-    {
-      "name": "Stuffing Seasoning Mix",
-      "type": "Pre-Packaged",
-      "weight_grams": 15,
-      "notes": "Includes a balanced blend of dried herbs, spices, and bouillon powder."
+      },
+      "stock": 120
     }
   ],
-  "instructions": {
-    "preparation": [
-      "Bring 1.5 cups (360 mL) of water to a boil in a medium saucepan.",
-      "Remove the saucepan from heat and stir in 2 tablespoons (28g) of melted butter (not included).",
-      "Add the entire contents of the stuffing mix package (bread cubes and seasoning) to the saucepan.",
-      "Stir well to combine, ensuring all bread cubes are moistened.",
-      "Cover the saucepan and let it sit for 5 minutes.",
-      "Fluff with a fork before serving."
-    ],
-    "storage": [
-      "Keep the product in its original sealed packaging in a cool, dry place.",
-      "Once prepared, refrigerate leftovers in an airtight container for up to 3 days."
-    ]
-  },
-  "dietary": {
-    "vegan": false,
-    "kosher": false,
-    "halal": false,
-    "allergens": [
-      "Wheat (sourdough bread)",
-      "Chicken (bouillon powder)"
-    ]
-  },
-  "features": [
-    "Made with freshly baked sourdough bread",
-    "Sealed for freshness",
-    "No artificial preservatives",
-    "Ready in just 10 minutes"
-  ],
-  "sustainability": {
-    "packaging": "Sealed plastic pouch (non-recyclable)",
-    "sourcing": "Locally sourced ingredients within 50 miles"
-  },
   "versioning": {
     "current_version": "1.1.0",
     "changelog": [
