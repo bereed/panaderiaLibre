@@ -3,12 +3,13 @@
   "sk": "stovetop-sourdough-stuffing",
   "metadata": {
     "recipe_name": "Stovetop Sourdough Stuffing",
-    "version": "1.1.0",
     "author": "Panaderia Libre",
     "created_date": "2024-11-16",
     "last_updated": "2024-11-16",
     "description": "A ready-to-make stovetop stuffing mix made with dried sourdough bread cubes and a flavorful seasoning blend.",
-    "tags": ["stuffing", "sourdough", "stovetop", "ready-to-make"]
+    "tags": ["stuffing", "sourdough", "stovetop", "ready-to-make"],
+    "indexed_fields": ["product_name", "tags", "version"],
+    "localization_ready": true
   },
   "pricing": {
     "currency": "USD",

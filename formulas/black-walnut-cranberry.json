@@ -9,52 +9,84 @@
     "created_date": "2024-11-16",
     "last_updated": "2024-11-16",
     "description": "A hearty sourdough bread enriched with black walnuts, dried cranberries, and olive oil for a robust flavor profile.",
-    "tags": ["bread", "sourdough", "cranberry", "walnut", "artisan"]
+    "tags": ["bread", "sourdough", "cranberry", "walnut", "artisan"],
+    "indexed_fields": ["recipe_name", "tags", "version"],
+    "localization_ready": true
   },
-  "ingredients": [
-    {
-      "name": "High-Protein Bread Flour",
-      "type": "Organic",
-      "weight_grams": 1000,
-      "notes": "Forms the base of the dough."
-    },
-    {
-      "name": "Water",
-      "type": "Filtered",
-      "weight_grams": 710,
-      "notes": "Provides 71% hydration for the dough."
-    },
-    {
-      "name": "Natural Sourdough Starter",
-      "type": "Fermented",
-      "weight_grams": 200,
-      "notes": "Provides leavening and characteristic sourdough flavor."
-    },
-    {
-      "name": "Sea Salt",
-      "type": "Fine",
-      "weight_grams": 20,
-      "notes": "Enhances flavor and strengthens gluten structure."
-    },
-    {
-      "name": "Olive Oil",
-      "type": "Extra Virgin",
-      "weight_grams": 28,
-      "notes": "Adds richness and a subtle nutty flavor."
-    },
-    {
-      "name": "Dried Cranberries",
-      "type": "Unsweetened",
-      "weight_grams": 100,
-      "notes": "Adds tangy bursts of flavor."
-    },
-    {
-      "name": "Black Walnuts",
-      "type": "Chopped",
-      "weight_grams": 100,
-      "notes": "Provides a bold and earthy crunch."
-    }
-  ],
+  "bread": {
+    "ingredients": [
+      {
+        "name": "Flour",
+        "type": "Strong",
+        "weight_grams": 1000,
+        "percentage": 100
+      },
+      {
+        "name": "Water",
+        "type": "Filtered",
+        "weight_grams": 710,
+        "percentage": 71
+      },
+      {
+        "name": "Preferment",
+        "type": "Levain",
+        "weight_grams": 200,
+        "percentage": 20
+      },
+      {
+        "name": "Sea Salt",
+        "type": "Fine",
+        "weight_grams": 20,
+        "percentage": 2
+      },
+      {
+        "name": "Olive Oil",
+        "type": "Extra Virgin",
+        "weight_grams": 28,
+        "percentage": 2.8
+      },
+      {
+        "yeast": [
+          {
+            "name": "Instant Yeast",
+            "weight_grams": 5,
+            "percentage": 0.5
+          },
+          {
+            "name": "Active Dry Yeast",
+            "weight_grams": 7,
+            "percentage": 0.7
+          }
+        ]
+      },
+      {
+        "inclusions": [
+          {
+            "name": "Black Walnuts",
+            "weight_grams": 140,
+            "percentage": 14
+          },
+          {
+            "name": "Cranberries",
+            "weight_grams": 140,
+            "percentage": 14
+          }
+        ]
+      }
+    ]
+  },
+  "total_weight_grams": 2239.2,
+  "hydration_percentage": 71,
+  "allergens": {
+    "contains": [
+      "Wheat (gluten)",
+      "Seeds (if using inclusions like sunflower or pumpkin seeds)"
+    ],
+    "may_contain_traces_of": [
+      "Nuts (cross-contamination from seeds)"
+    ],
+    "notes": "Ensure inclusions are sourced from allergen-safe facilities if needed."
+  },
   "instructions": {
     "making": [
       "Combine the flour, water, sourdough starter, and olive oil in a large mixing bowl. Let it rest for 30 minutes (autolyse).",
@@ -66,10 +98,21 @@
       "Preheat the oven to 250°C (480°F) with a Dutch oven or baking stone inside.",
       "Transfer the dough to the preheated surface, score the top, and bake for 20 minutes with steam.",
       "Reduce the oven temperature to 230°C (450°F) and bake for another 20-25 minutes until golden brown."
+    ],
+    "storage": [
+      "Store the bread in a paper bag at room temperature for up to 2 days.",
+      "For longer storage, wrap tightly in plastic or foil and freeze for up to 1 month."
+    ],
+    "reheating": [
+      "To refresh, heat in an oven at 180°C (350°F) for 10-15 minutes.",
+      "For slices, toast in a toaster or under a broiler until warmed."
+    ],
+    "usage": [
+      "Best served with butter or olive oil as a side to soups and salads.",
+      "Makes excellent sandwiches, especially for grilled cheese or paninis.",
+      "Use stale bread for croutons, breadcrumbs, or bread pudding."
     ]
   },
-  "hydration": "71%",
-  "notes": "This formula balances the nutty richness of black walnuts with the tart sweetness of cranberries.",
   "versioning": {
     "current_version": "1.0.0",
     "changelog": [

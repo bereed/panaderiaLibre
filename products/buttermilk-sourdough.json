@@ -3,12 +3,13 @@
   "sk": "buttermilk-sourdough",
   "metadata": {
     "product_name": "Buttermilk Sourdough Products",
-    "version": "1.0.0",
     "author": "Panaderia Libre",
     "created_date": "2024-11-16",
     "last_updated": "2024-11-16",
     "description": "A selection of soft and subtly tangy sourdough bread products made with buttermilk powder and olive oil, available in various sizes.",
-    "tags": ["bread", "sourdough", "buttermilk", "artisan"]
+    "tags": ["bread", "sourdough", "buttermilk", "artisan"],
+    "indexed_fields": ["product_name", "tags", "version"],
+    "localization_ready": true
   },
   "products": [
     {
