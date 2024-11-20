@@ -20,15 +20,10 @@
   </div>
 
   <script>
-    // Register service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.error('Service Worker registration failed:', error);
-        });
+        .then(registration => console.log('Service Worker registered:', registration.scope))
+        .catch(error => console.error('Service Worker registration failed:', error));
     }
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -41,31 +36,95 @@
           return response.json();
         })
         .then(data => {
-          // Display formula content
           const recipeName = data.metadata.recipe_name || "Unknown Recipe";
           document.getElementById("recipe-name").innerText = recipeName;
 
           const recipeContent = document.getElementById("recipe-content");
-          recipeContent.innerHTML = `
+
+          // Metadata
+          const metadata = `
             <div class="section">
               <h2>Metadata</h2>
               <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
-              <p><strong>Version:</strong> ${data.metadata.version}</p>
+              <p><strong>Author:</strong> ${data.metadata.author}</p>
+              <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
+              <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
               <p><strong>Description:</strong> ${data.metadata.description}</p>
+              <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
             </div>
+          `;
+
+          // Ingredients
+          const ingredients = `
             <div class="section">
               <h2>Ingredients</h2>
-              ${data.bread.ingredients.map(ingredient => `
-                <div class="ingredient">
-                  <strong>${ingredient.name}:</strong> ${ingredient.weight_grams}g (${ingredient.percentage}%)
-                </div>`).join('')}
+              ${data.bread.ingredients.map(ingredient => {
+                if (ingredient.yeast) {
+                  return `
+                    <div class="ingredient">
+                      <strong>Yeast:</strong>
+                      ${ingredient.yeast.map(yeast => `
+                        <div>${yeast.name}: ${yeast.weight_grams}g (${yeast.percentage}%)</div>
+                      `).join('')}
+                    </div>`;
+                }
+                return `
+                  <div class="ingredient">
+                    <strong>${ingredient.name} (${ingredient.type}):</strong> 
+                    ${ingredient.weight_grams}g ${ingredient.percentage ? `(${ingredient.percentage}%)` : ""}
+                  </div>`;
+              }).join('')}
             </div>
+          `;
+
+          // Instructions
+          const instructions = `
             <div class="section">
               <h2>Instructions</h2>
               ${data.instructions.making.map((step, index) => `
-                <p><strong>Step ${index + 1}:</strong> ${step}</p>`).join('')}
+                <p><strong>Step ${index + 1}:</strong> ${step}</p>
+              `).join('')}
             </div>
           `;
+
+          // Allergens
+          const allergens = `
+            <div class="section">
+              <h2>Allergens</h2>
+              <p><strong>Contains:</strong> ${data.allergens.contains.join(', ')}</p>
+              <p><strong>May Contain Traces of:</strong> ${data.allergens.may_contain_traces_of.join(', ')}</p>
+              <p><strong>Notes:</strong> ${data.allergens.notes}</p>
+            </div>
+          `;
+
+          // Versioning
+          const versioning = `
+            <div class="section">
+              <h2>Versioning</h2>
+              <p><strong>Current Version:</strong> ${data.versioning.current_version}</p>
+              <h3>Changelog</h3>
+              ${data.versioning.changelog.map(change => `
+                <div>
+                  <p><strong>Version ${change.version} (${change.date}):</strong></p>
+                  <ul>
+                    ${change.changes.map(entry => `<li>${entry}</li>`).join('')}
+                  </ul>
+                </div>
+              `).join('')}
+            </div>
+          `;
+
+          // Total Weight and Hydration
+          const totals = `
+            <div class="section">
+              <h2>Totals</h2>
+              <p><strong>Total Weight:</strong> ${data.total_weight_grams}g</p>
+              <p><strong>Hydration Percentage:</strong> ${data.hydration_percentage}%</p>
+            </div>
+          `;
+
+          // Combine all sections
+          recipeContent.innerHTML = metadata + ingredients + instructions + allergens + versioning + totals;
         })
         .catch(error => {
           document.getElementById("error-message").style.display = "block";
