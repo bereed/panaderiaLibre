@@ -15,14 +15,14 @@
   "bread": {
     "ingredients": [
       {
-        "name": "Dried Sourdough Bread Cubes",
-        "type": "Pre-Packaged",
+        "name": "Flour",
+        "type": "Dried Sourdough Bread Cubes",
         "weight_grams": 170,
         "percentage": 91.9
       },
       {
-        "name": "Stuffing Seasoning Mix",
-        "type": "Pre-Packaged",
+        "name": "Seasoning",
+        "type": "Stuffing Seasoning Mix",
         "weight_grams": 15,
         "percentage": 8.1
       },
