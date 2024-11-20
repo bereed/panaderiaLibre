@@ -25,7 +25,8 @@
         "type": "Filtered",
         "weight_grams": 680,
         "percentage": 68
-      }  {
+      },
+      {
         "name": "Preferment",
         "type": "Levain",
         "weight_grams": 200,
