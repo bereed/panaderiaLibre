@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bread Formula Viewer</title>
+  <title>Bread Viewer</title>
   
   <!-- Link to external stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -13,9 +13,9 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="recipe-name">Loading...</h1>
-    <div id="recipe-content">
-      <p class="error" id="error-message" style="display: none;">Error loading formula. Please check the URL.</p>
+    <h1 id="page-title">Loading...</h1>
+    <div id="content">
+      <p class="error" id="error-message" style="display: none;">Error loading data. Please check the URL.</p>
     </div>
   </div>
 
@@ -27,111 +27,112 @@
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const formulaUrl = urlParams.get('formula');
+    const dataUrl = urlParams.get('data');
 
-    if (formulaUrl) {
-      fetch(formulaUrl)
+    if (dataUrl) {
+      fetch(dataUrl)
         .then(response => {
-          if (!response.ok) throw new Error("Failed to load formula.");
+          if (!response.ok) throw new Error("Failed to load data.");
           return response.json();
         })
         .then(data => {
-          const recipeName = data.metadata.recipe_name || "Unknown Recipe";
-          document.getElementById("recipe-name").innerText = recipeName;
+          const pageTitle = document.getElementById("page-title");
+          const content = document.getElementById("content");
 
-          const recipeContent = document.getElementById("recipe-content");
+          if (data.pk === "formula-collection") {
+            // Formula view
+            pageTitle.innerText = data.metadata.recipe_name || "Unknown Formula";
 
-          // Metadata
-          const metadata = `
-            <div class="section">
-              <h2>Metadata</h2>
-              <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
-              <p><strong>Author:</strong> ${data.metadata.author}</p>
-              <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
-              <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
-              <p><strong>Description:</strong> ${data.metadata.description}</p>
-              <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
-            </div>
-          `;
+            const metadata = `
+              <div class="section">
+                <h2>Metadata</h2>
+                <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
+                <p><strong>Author:</strong> ${data.metadata.author}</p>
+                <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
+                <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
+                <p><strong>Description:</strong> ${data.metadata.description}</p>
+                <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
+              </div>
+            `;
 
-          // Ingredients
-          const ingredients = `
-            <div class="section">
-              <h2>Ingredients</h2>
-              ${data.bread.ingredients.map(ingredient => {
-                if (ingredient.yeast) {
+            const ingredients = `
+              <div class="section">
+                <h2>Ingredients</h2>
+                ${data.bread.ingredients.map(ingredient => {
+                  if (ingredient.yeast) {
+                    return `
+                      <div class="ingredient">
+                        <strong>Yeast:</strong>
+                        ${ingredient.yeast.map(yeast => `
+                          <div>${yeast.name}: ${yeast.weight_grams}g (${yeast.percentage}%)</div>
+                        `).join('')}
+                      </div>`;
+                  }
                   return `
                     <div class="ingredient">
-                      <strong>Yeast:</strong>
-                      ${ingredient.yeast.map(yeast => `
-                        <div>${yeast.name}: ${yeast.weight_grams}g (${yeast.percentage}%)</div>
-                      `).join('')}
+                      <strong>${ingredient.name} (${ingredient.type}):</strong> 
+                      ${ingredient.weight_grams}g ${ingredient.percentage ? `(${ingredient.percentage}%)` : ""}
                     </div>`;
-                }
-                return `
-                  <div class="ingredient">
-                    <strong>${ingredient.name} (${ingredient.type}):</strong> 
-                    ${ingredient.weight_grams}g ${ingredient.percentage ? `(${ingredient.percentage}%)` : ""}
-                  </div>`;
-              }).join('')}
-            </div>
-          `;
+                }).join('')}
+              </div>
+            `;
 
-          // Instructions
-          const instructions = `
-            <div class="section">
-              <h2>Instructions</h2>
-              ${data.instructions.making.map((step, index) => `
-                <p><strong>Step ${index + 1}:</strong> ${step}</p>
-              `).join('')}
-            </div>
-          `;
+            const instructions = `
+              <div class="section">
+                <h2>Instructions</h2>
+                ${data.instructions.making.map((step, index) => `
+                  <p><strong>Step ${index + 1}:</strong> ${step}</p>
+                `).join('')}
+              </div>
+            `;
 
-          // Allergens
-          const allergens = `
-            <div class="section">
-              <h2>Allergens</h2>
-              <p><strong>Contains:</strong> ${data.allergens.contains.join(', ')}</p>
-              <p><strong>May Contain Traces of:</strong> ${data.allergens.may_contain_traces_of.join(', ')}</p>
-              <p><strong>Notes:</strong> ${data.allergens.notes}</p>
-            </div>
-          `;
+            content.innerHTML = metadata + ingredients + instructions;
 
-          // Versioning
-          const versioning = `
-            <div class="section">
-              <h2>Versioning</h2>
-              <p><strong>Current Version:</strong> ${data.versioning.current_version}</p>
-              <h3>Changelog</h3>
-              ${data.versioning.changelog.map(change => `
-                <div>
-                  <p><strong>Version ${change.version} (${change.date}):</strong></p>
-                  <ul>
-                    ${change.changes.map(entry => `<li>${entry}</li>`).join('')}
-                  </ul>
-                </div>
-              `).join('')}
-            </div>
-          `;
+          } else if (data.pk === "product-collection") {
+            // Product view
+            pageTitle.innerText = data.metadata.product_name || "Unknown Product";
 
-          // Total Weight and Hydration
-          const totals = `
-            <div class="section">
-              <h2>Totals</h2>
-              <p><strong>Total Weight:</strong> ${data.total_weight_grams}g</p>
-              <p><strong>Hydration Percentage:</strong> ${data.hydration_percentage}%</p>
-            </div>
-          `;
+            const metadata = `
+              <div class="section">
+                <h2>Metadata</h2>
+                <p><strong>Author:</strong> ${data.metadata.author}</p>
+                <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
+                <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
+                <p><strong>Description:</strong> ${data.metadata.description}</p>
+                <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
+              </div>
+            `;
 
-          // Combine all sections
-          recipeContent.innerHTML = metadata + ingredients + instructions + allergens + versioning + totals;
+            const products = `
+              <div class="section">
+                <h2>Products</h2>
+                ${data.products.map(product => `
+                  <div class="product">
+                    <h3>${product.type}</h3>
+                    <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
+                    <p><strong>Weight:</strong> ${product.weight_grams}g</p>
+                    <p><strong>Dimensions:</strong> ${product.dimensions_cm.join('cm x ')}cm</p>
+                    <p><strong>Packaging:</strong> ${product.packaging}</p>
+                    <p><strong>Stock:</strong> ${product.stock} available</p>
+                    <p><strong>Bulk Discount:</strong> 
+                      Buy ${product.bulk_discount.min_quantity} or more for $${product.bulk_discount.price_per_unit.toFixed(2)} each
+                    </p>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+
+            content.innerHTML = metadata + products;
+          } else {
+            throw new Error("Unknown data type.");
+          }
         })
         .catch(error => {
           document.getElementById("error-message").style.display = "block";
           console.error(error);
         });
     } else {
-      document.getElementById("recipe-name").innerText = "No formula specified.";
+      document.getElementById("page-title").innerText = "No data specified.";
     }
   </script>
 </body>
