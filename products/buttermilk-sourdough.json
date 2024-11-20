@@ -14,52 +14,46 @@
   "products": [
     {
       "type": "Regular Loaf",
-      "details": {
-        "weight_grams": 500,
-        "price": 6.99,
-        "dimensions_cm": [20, 12, 8],
-        "packaging": {
-          "material": "Recyclable paper bag with plastic window",
-          "notes": "Designed to showcase the bread while maintaining freshness."
-        },
-        "bulk_discount": {
-          "min_quantity": 5,
-          "price_per_unit": 5.99
-        }
+      "weight_grams": 500,
+      "price": 6.99,
+      "dimensions_cm": [20, 12, 8],
+      "packaging": {
+        "material": "Recyclable paper bag with plastic window",
+        "notes": "Designed to showcase the bread while maintaining freshness."
       },
-      "stock": 50
+      "bulk_discount": {
+        "min_quantity": 5,
+        "price_per_unit": 5.99
+      },
+    "stock": 50
     },
     {
       "type": "Large Loaf",
-      "details": {
-        "weight_grams": 1000,
-        "price": 9.99,
-        "dimensions_cm": [30, 15, 10],
-        "packaging": {
-          "material": "Recyclable paper bag with plastic window",
-          "notes": "Eco-friendly packaging for larger loaves."
-        },
-        "bulk_discount": {
-          "min_quantity": 5,
-          "price_per_unit": 8.99
-        }
+      "weight_grams": 1000,
+      "price": 9.99,
+      "dimensions_cm": [30, 15, 10],
+      "packaging": {
+        "material": "Recyclable paper bag with plastic window",
+        "notes": "Eco-friendly packaging for larger loaves."
+      },
+      "bulk_discount": {
+        "min_quantity": 5,
+        "price_per_unit": 8.99
       },
       "stock": 25
     },
     {
       "type": "Mini Loaf",
-      "details": {
-        "weight_grams": 250,
-        "price": 3.99,
-        "dimensions_cm": [15, 10, 5],
-        "packaging": {
-          "material": "Recyclable paper bag",
-          "notes": "Perfect for single servings or gifts."
-        },
-        "bulk_discount": {
-          "min_quantity": 5,
-          "price_per_unit": 3.49
-        }
+      "weight_grams": 250,
+      "price": 3.99,
+      "dimensions_cm": [15, 10, 5],
+      "packaging": {
+        "material": "Recyclable paper bag",
+        "notes": "Perfect for single servings or gifts."
+      },
+      "bulk_discount": {
+        "min_quantity": 5,
+        "price_per_unit": 3.49
       },
       "stock": 75
     }
