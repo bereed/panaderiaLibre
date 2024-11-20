@@ -13,9 +13,9 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="name">Loading...</h1>
+    <h1 id="name">Bread Viewer</h1>
     <div id="content">
-      <p class="error" id="error-message" style="display: none;">Error loading data. Please check the URL.</p>
+      <p>Loading...</p>
     </div>
   </div>
 
@@ -30,6 +30,7 @@
     const dataUrl = urlParams.get('data');
 
     if (dataUrl) {
+      // Fetch and display a specific recipe
       fetch(dataUrl)
         .then(response => {
           if (!response.ok) throw new Error("Failed to load data.");
@@ -40,186 +41,114 @@
           const nameElement = document.getElementById("name");
 
           if (data.pk === "formula-collection") {
-            // Formula View
             nameElement.innerText = data.metadata.recipe_name || "Unknown Formula";
-            
-            const metadata = `
+            content.innerHTML = `
               <div class="section">
                 <h2>Metadata</h2>
                 <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
                 <p><strong>Author:</strong> ${data.metadata.author}</p>
                 <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
-                <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
                 <p><strong>Description:</strong> ${data.metadata.description}</p>
                 <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
               </div>
-            `;
-            
-            const ingredients = `
               <div class="section">
                 <h2>Ingredients</h2>
                 ${data.bread.ingredients.map(ingredient => `
-                  <div class="ingredient">
-                    <strong>${ingredient.name}:</strong> 
-                    ${ingredient.weight_grams}g ${ingredient.percentage ? `(${ingredient.percentage}%)` : ""}
-                  </div>
-                `).join('')}
+                  <p><strong>${ingredient.name}:</strong> 
+                  ${ingredient.weight_grams}g ${ingredient.percentage ? `(${ingredient.percentage}%)` : ""}
+                  </p>`).join('')}
               </div>
-            `;
-            
-            const instructions = `
               <div class="section">
                 <h2>Instructions</h2>
-                ${data.instructions.making.map((step, index) => `
-                  <p><strong>Step ${index + 1}:</strong> ${step}</p>
-                `).join('')}
+                ${data.instructions.making.map((step, index) => `<p><strong>Step ${index + 1}:</strong> ${step}</p>`).join('')}
               </div>
             `;
-
-            const storage = `
-              <div class="section">
-                <h2>Storage</h2>
-                ${data.instructions.storage.map(rec => `<p>${rec}</p>`).join('')}
-              </div>
-            `;
-
-            const reheating = `
-              <div class="section">
-                <h2>Reheating</h2>
-                ${data.instructions.reheating.map(rec => `<p>${rec}</p>`).join('')}
-              </div>
-            `;
-
-            const usage = `
-              <div class="section">
-                <h2>Usage</h2>
-                ${data.instructions.usage.map(rec => `<p>${rec}</p>`).join('')}
-              </div>
-            `;
-
-            const versioning = `
-              <div class="section">
-                <h2>Versioning</h2>
-                <p><strong>Current Version:</strong> ${data.versioning.current_version}</p>
-                <h3>Changelog</h3>
-                ${data.versioning.changelog.map(change => `
-                  <div>
-                    <p><strong>Version ${change.version} (${change.date}):</strong></p>
-                    <ul>
-                      ${change.changes.map(entry => `<li>${entry}</li>`).join('')}
-                    </ul>
-                  </div>
-                `).join('')}
-              </div>
-            `;
-
-            content.innerHTML = metadata + ingredients + instructions + storage + reheating + usage + versioning;
-
           } else if (data.pk === "product-collection") {
-            // Product View
             nameElement.innerText = data.metadata.product_name || "Unknown Product";
-
-            const metadata = `
-              <div class="section">
-                <h2>Metadata</h2>
-                <p><strong>Author:</strong> ${data.metadata.author}</p>
-                <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
-                <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
-                <p><strong>Description:</strong> ${data.metadata.description}</p>
-                <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
-              </div>
-            `;
-
-            const products = `
+            content.innerHTML = `
               <div class="section">
                 <h2>Products</h2>
                 ${data.products.map(product => `
-                  <div class="product">
-                    <h3>${product.type}</h3>
-                    <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
-                    <p><strong>Weight:</strong> ${product.weight_grams}g</p>
-                    <p><strong>Dimensions:</strong> ${product.dimensions_cm.join(' x ')} cm</p>
-                    <p><strong>Packaging:</strong> ${product.packaging}</p>
-                    <p><strong>Stock:</strong> ${product.stock} available</p>
-                    ${product.bulk_discount ? `
-                      <p><strong>Bulk Discount:</strong> Buy ${product.bulk_discount.min_quantity} or more for $${product.bulk_discount.price_per_unit.toFixed(2)} each</p>
-                    ` : ""}
-                  </div>
-                `).join('')}
+                  <p><strong>${product.type}:</strong> $${product.price.toFixed(2)}</p>`).join('')}
               </div>
             `;
-
-            content.innerHTML = metadata + products;
-
           } else if (data.pk === "mixture-collection") {
-            // Mixture View
             nameElement.innerText = data.metadata.recipe_name || "Unknown Mixture";
-
-            const metadata = `
-              <div class="section">
-                <h2>Metadata</h2>
-                <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
-                <p><strong>Author:</strong> ${data.metadata.author}</p>
-                <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
-                <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
-                <p><strong>Description:</strong> ${data.metadata.description}</p>
-                <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
-              </div>
-            `;
-
-            const ingredients = `
+            content.innerHTML = `
               <div class="section">
                 <h2>Ingredients</h2>
                 ${data.ingredients.map(ingredient => `
-                  <div class="ingredient">
-                    <strong>${ingredient.name}:</strong> 
-                    ${ingredient.weight_grams}g <em>${ingredient.notes}</em>
-                  </div>
-                `).join('')}
+                  <p><strong>${ingredient.name}:</strong> ${ingredient.weight_grams}g</p>`).join('')}
               </div>
             `;
-
-            const instructions = `
-              <div class="section">
-                <h2>Instructions</h2>
-                ${data.instructions.mixing.map((step, index) => `
-                  <p><strong>Step ${index + 1}:</strong> ${step}</p>
-                `).join('')}
-                <h3>Usage</h3>
-                ${data.instructions.usage.map((step, index) => `
-                  <p><strong>Usage ${index + 1}:</strong> ${step}</p>
-                `).join('')}
-              </div>
-            `;
-
-            const storage = `
-              <div class="section">
-                <h2>Storage</h2>
-                ${data.storage.recommendations.map(rec => `<p>${rec}</p>`).join('')}
-              </div>
-            `;
-
-            const allergens = `
-              <div class="section">
-                <h2>Allergens</h2>
-                <p><strong>Contains:</strong> ${data.allergens.contains.join(', ')}</p>
-                <p><strong>May Contain Traces Of:</strong> ${data.allergens.may_contain_traces_of.join(', ')}</p>
-              </div>
-            `;
-
-            content.innerHTML = metadata + ingredients + instructions + storage + allergens;
-
           } else {
             nameElement.innerText = "Unsupported Data Type";
-            content.innerHTML = `<p class="error">The data type is not recognized.</p>`;
+            content.innerHTML = "<p>The specified recipe type is not supported.</p>";
           }
         })
         .catch(error => {
-          document.getElementById("error-message").style.display = "block";
+          document.getElementById("content").innerHTML = "<p>Error loading recipe. Please try again later.</p>";
           console.error(error);
         });
     } else {
-      document.getElementById("name").innerText = "No data specified.";
+      // Fetch and display recipes index
+      fetch('/viewer/recipes.json')
+        .then(response => {
+          if (!response.ok) throw new Error("Failed to load recipes index.");
+          return response.json();
+        })
+        .then(data => {
+          const content = document.getElementById("content");
+          const nameElement = document.getElementById("name");
+          nameElement.innerText = "Choose a Recipe";
+
+          let contentHtml = '';
+
+          if (data.formulas && data.formulas.length > 0) {
+            contentHtml += `
+              <div class="section">
+                <h2>Formulas</h2>
+                <ul>
+                  ${data.formulas.map(formula => `
+                    <li><a href="?data=${encodeURIComponent(formula.url)}">${formula.name}</a></li>
+                  `).join('')}
+                </ul>
+              </div>
+            `;
+          }
+
+          if (data.products && data.products.length > 0) {
+            contentHtml += `
+              <div class="section">
+                <h2>Products</h2>
+                <ul>
+                  ${data.products.map(product => `
+                    <li><a href="?data=${encodeURIComponent(product.url)}">${product.name}</a></li>
+                  `).join('')}
+                </ul>
+              </div>
+            `;
+          }
+
+          if (data.mixtures && data.mixtures.length > 0) {
+            contentHtml += `
+              <div class="section">
+                <h2>Mixtures</h2>
+                <ul>
+                  ${data.mixtures.map(mixture => `
+                    <li><a href="?data=${encodeURIComponent(mixture.url)}">${mixture.name}</a></li>
+                  `).join('')}
+                </ul>
+              </div>
+            `;
+          }
+
+          content.innerHTML = contentHtml || "<p>No recipes available.</p>";
+        })
+        .catch(error => {
+          document.getElementById("content").innerHTML = "<p>Error loading recipes index. Please try again later.</p>";
+          console.error(error);
+        });
     }
   </script>
 </body>

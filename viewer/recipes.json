@@ -1,19 +1,19 @@
 {
     "formulas": [
-      { "name": "Basic Formula", "url": "./formulas/basic.json" },
-      { "name": "Chocolate Tart Cherry", "url": "./formulas/chocolate-tart-cherry.json" },
-      { "name": "Black Walnut Cranberry", "url": "./formulas/black-walnut-cranberry.json" },
-      { "name": "Buttermilk", "url": "./formulas/buttermilk.json" }
+      { "name": "Basic Formula", "url": "https://bereed.github.io/panaderiaLibre/formulas/basic.json" },
+      { "name": "Chocolate Tart Cherry", "url": "https://bereed.github.io/panaderiaLibre/formulas/chocolate-tart-cherry.json" },
+      { "name": "Black Walnut Cranberry", "url": "https://bereed.github.io/panaderiaLibre/formulas/black-walnut-cranberry.json" },
+      { "name": "Buttermilk", "url": "https://bereed.github.io/panaderiaLibre/formulas/buttermilk.json" }
     ],
     "products": [
-        { "name": "Basic Formula", "url": "./products/basic-sourdough.json" },
-        { "name": "Chocolate Tart Cherry", "url": "./products/chocolate-tart-cherry-sourdough.json" },
-        { "name": "Black Walnut Cranberry", "url": "./products/black-walnut-cranberry-sourdough.json" },
-        { "name": "Buttermilk", "url": "./products/buttermilk-sourdough.json" },
-        { "name": "Stuffing", "url": "./products/stovetop-stuffing.json" }
+        { "name": "Basic Formula", "url": "https://bereed.github.io/panaderiaLibre/products/basic-sourdough.json" },
+        { "name": "Chocolate Tart Cherry", "url": "https://bereed.github.io/panaderiaLibre/products/chocolate-tart-cherry-sourdough.json" },
+        { "name": "Black Walnut Cranberry", "url": "https://bereed.github.io/panaderiaLibre/products/black-walnut-cranberry-sourdough.json" },
+        { "name": "Buttermilk", "url": "https://bereed.github.io/panaderiaLibre/products/buttermilk-sourdough.json" },
+        { "name": "Stuffing", "url": "https://bereed.github.io/panaderiaLibre/products/stovetop-stuffing.json" }
     ],
     "mixtures": [
-      { "name": "Stuffing Seasoning", "url": "./mixtures/stuffing-seasoning-blend.json" }
+      { "name": "Stuffing Seasoning", "url": "https://bereed.github.io/panaderiaLibre/mixtures/stuffing-seasoning-blend.json" }
     ]
   }
   
