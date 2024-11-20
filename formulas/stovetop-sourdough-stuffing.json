@@ -1,0 +1,77 @@
+{
+    "pk": "formula-collection",
+    "sk": "stovetop-sourdough-stuffing",
+    "metadata": {
+      "recipe_name": "Stovetop Sourdough Stuffing",
+      "recipe_type": "Stuffing",
+      "author": "Panaderia Libre",
+      "created_date": "2024-11-16",
+      "last_updated": "2024-11-16",
+      "description": "A formula for stovetop stuffing featuring dried sourdough bread cubes and a flavorful seasoning mix.",
+      "tags": ["stuffing", "sourdough", "stovetop", "holiday"],
+      "indexed_fields": ["recipe_name", "tags", "version"],
+      "localization_ready": true
+    },
+    "bread": {
+      "ingredients": [
+        {
+          "name": "Dried Sourdough Bread Cubes",
+          "type": "Pre-Packaged",
+          "weight_grams": 170,
+          "percentage": 91.9
+        },
+        {
+          "name": "Stuffing Seasoning Mix",
+          "type": "Pre-Packaged",
+          "weight_grams": 15,
+          "percentage": 8.1
+        }
+      ]
+    },
+    "total_weight_grams": 185,
+    "hydration_percentage": null,
+    "allergens": {
+      "contains": [
+        "Wheat (sourdough bread)",
+        "Chicken (bouillon powder)"
+      ],
+      "may_contain_traces_of": [
+        "Nuts (cross-contamination from seasoning mix or bread production)"
+      ],
+      "notes": "Ensure all ingredients are sourced from allergen-safe facilities if needed."
+    },
+    "instructions": {
+      "making": [
+        "Bring 1.5 cups (360 mL) of water to a boil in a medium saucepan.",
+        "Remove the saucepan from heat and stir in 2 tablespoons (28g) of melted butter (not included).",
+        "Add the entire contents of the stuffing mix package (bread cubes and seasoning) to the saucepan.",
+        "Stir well to combine, ensuring all bread cubes are moistened.",
+        "Cover the saucepan and let it sit for 5 minutes.",
+        "Fluff with a fork before serving."
+      ],
+      "storage": [
+        "Keep the product in its original sealed packaging in a cool, dry place.",
+        "Once prepared, refrigerate leftovers in an airtight container for up to 3 days."
+      ],
+      "reheating": [
+        "To reheat, place stuffing in an oven-safe dish and cover with foil. Heat in an oven at 180°C (350°F) for 10-15 minutes.",
+        "Alternatively, microwave individual portions in a microwave-safe dish for 1-2 minutes until warmed."
+      ],
+      "usage": [
+        "Serve as a side dish for roasted poultry, pork, or beef.",
+        "Use as a filling for stuffed vegetables like bell peppers or squash.",
+        "Incorporate leftovers into soups or casseroles."
+      ]
+    },
+    "versioning": {
+      "current_version": "1.0.0",
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "date": "2024-11-16",
+          "changes": ["Initial release of stovetop stuffing formula."]
+        }
+      ]
+    }
+  }
+  
