@@ -30,7 +30,7 @@
     const dataUrl = urlParams.get('data');
 
     if (dataUrl) {
-      // Fetch and display a specific recipe
+      // Fetch and display specific recipe data
       fetch(dataUrl)
         .then(response => {
           if (!response.ok) throw new Error("Failed to load data.");
@@ -41,6 +41,7 @@
           const nameElement = document.getElementById("name");
 
           if (data.pk === "formula-collection") {
+            // Formula View
             nameElement.innerText = data.metadata.recipe_name || "Unknown Formula";
             content.innerHTML = `
               <div class="section">
@@ -48,37 +49,77 @@
                 <p><strong>Type:</strong> ${data.metadata.recipe_type}</p>
                 <p><strong>Author:</strong> ${data.metadata.author}</p>
                 <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
+                <p><strong>Last Updated:</strong> ${data.metadata.last_updated}</p>
                 <p><strong>Description:</strong> ${data.metadata.description}</p>
                 <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
               </div>
               <div class="section">
                 <h2>Ingredients</h2>
                 ${data.bread.ingredients.map(ingredient => `
-                  <p><strong>${ingredient.name}:</strong> 
-                  ${ingredient.weight_grams}g ${ingredient.percentage ? `(${ingredient.percentage}%)` : ""}
-                  </p>`).join('')}
+                  <div class="ingredient">
+                    <strong>${ingredient.name}:</strong> 
+                    ${ingredient.weight_grams}g ${ingredient.percentage ? `(${ingredient.percentage}%)` : ""}
+                  </div>
+                `).join('')}
               </div>
               <div class="section">
                 <h2>Instructions</h2>
                 ${data.instructions.making.map((step, index) => `<p><strong>Step ${index + 1}:</strong> ${step}</p>`).join('')}
               </div>
+              <div class="section">
+                <h2>Storage</h2>
+                ${data.instructions.storage.map(line => `<p>${line}</p>`).join('')}
+              </div>
+              <div class="section">
+                <h2>Reheating</h2>
+                ${data.instructions.reheating.map(line => `<p>${line}</p>`).join('')}
+              </div>
+              <div class="section">
+                <h2>Usage</h2>
+                ${data.instructions.usage.map(line => `<p>${line}</p>`).join('')}
+              </div>
             `;
           } else if (data.pk === "product-collection") {
+            // Product View
             nameElement.innerText = data.metadata.product_name || "Unknown Product";
             content.innerHTML = `
               <div class="section">
+                <h2>Metadata</h2>
+                <p><strong>Author:</strong> ${data.metadata.author}</p>
+                <p><strong>Created Date:</strong> ${data.metadata.created_date}</p>
+                <p><strong>Description:</strong> ${data.metadata.description}</p>
+                <p><strong>Tags:</strong> ${data.metadata.tags.join(', ')}</p>
+              </div>
+              <div class="section">
                 <h2>Products</h2>
                 ${data.products.map(product => `
-                  <p><strong>${product.type}:</strong> $${product.price.toFixed(2)}</p>`).join('')}
+                  <div class="product">
+                    <h3>${product.type}</h3>
+                    <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
+                    <p><strong>Weight:</strong> ${product.weight_grams}g</p>
+                    <p><strong>Dimensions:</strong> ${product.dimensions_cm.join(' x ')} cm</p>
+                    <p><strong>Packaging:</strong> ${product.packaging}</p>
+                    <p><strong>Stock:</strong> ${product.stock} available</p>
+                    ${product.bulk_discount ? `
+                      <p><strong>Bulk Discount:</strong> Buy ${product.bulk_discount.min_quantity} or more for $${product.bulk_discount.price_per_unit.toFixed(2)} each</p>
+                    ` : ""}
+                  </div>
+                `).join('')}
               </div>
             `;
           } else if (data.pk === "mixture-collection") {
+            // Mixture View
             nameElement.innerText = data.metadata.recipe_name || "Unknown Mixture";
             content.innerHTML = `
               <div class="section">
                 <h2>Ingredients</h2>
                 ${data.ingredients.map(ingredient => `
-                  <p><strong>${ingredient.name}:</strong> ${ingredient.weight_grams}g</p>`).join('')}
+                  <p><strong>${ingredient.name}:</strong> ${ingredient.weight_grams}g ${ingredient.notes ? `<em>(${ingredient.notes})</em>` : ""}</p>
+                `).join('')}
+              </div>
+              <div class="section">
+                <h2>Instructions</h2>
+                ${data.instructions.mixing.map((step, index) => `<p><strong>Step ${index + 1}:</strong> ${step}</p>`).join('')}
               </div>
             `;
           } else {
@@ -91,8 +132,8 @@
           console.error(error);
         });
     } else {
-      // Fetch and display recipes index
-      fetch('/viewer/recipes.json')
+      // Landing Page: Fetch recipes index
+      fetch('https://bereed.github.io/panaderiaLibre/viewer/recipes.json')
         .then(response => {
           if (!response.ok) throw new Error("Failed to load recipes index.");
           return response.json();
