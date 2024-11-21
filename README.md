@@ -50,7 +50,7 @@ Open index.html in your browser to explore the viewer.
 
 3. Load Specific JSON Files:
 
-Append a ?formula= query string to the URL with the JSON file path.
+Append a ?data= query string to the URL with the JSON file path.
 
 Example:
 
@@ -130,7 +130,7 @@ Visit: https://<your-username>.github.io/panaderiaLibre/index.html.
 
 Use a query string to load JSON:
 
-https://<your-username>.github.io/panaderiaLibre/index.html?formula=https://<your-username>.github.io/panaderiaLibre/products/buttermilk-sourdough-products.json
+https://<your-username>.github.io/panaderiaLibre/index.html?data=https://<your-username>.github.io/panaderiaLibre/products/buttermilk-sourdough-products.json
 
 
 
