@@ -58,18 +58,16 @@
         "percentage": 0.7
       },
       {
-        "inclusions": [
-          {
-            "name": "Black Walnuts",
-            "weight_grams": 140,
-            "percentage": 14
-          },
-          {
-            "name": "Cranberries",
-            "weight_grams": 140,
-            "percentage": 14
-          }
-        ]
+        "name": "Black Walnuts",
+        "type": "Inclusion",
+        "weight_grams": 140,
+        "percentage": 14
+      },
+      {
+        "name": "Cranberries",
+        "type": "Inclusion",
+        "weight_grams": 140,
+        "percentage": 14
       }
     ]
   },

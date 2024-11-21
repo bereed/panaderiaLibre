@@ -49,9 +49,6 @@
         "type": "Yeast",
         "weight_grams": 7,
         "percentage": 0.7
-      },
-      {
-        "inclusions": []
       }
     ]
   },

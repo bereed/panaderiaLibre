@@ -61,18 +61,16 @@
         "type": "Yeast",
         "weight_grams": 7,
         "percentage": 0.7
-      }
-    ],
-    "inclusions": [
+      },
       {
-        "name": "Dark Chocolate",
-        "type": "60%",
+        "name": "Dark Chocolate, 60%",
+        "type": "Inclusion",
         "weight_grams": 140,
         "percentage": 14
       },
       {
-        "name": "Dried Tart Cherries",
-        "type": "Unsweetened",
+        "name": "Dried Tart Cherries, Unsweetened",
+        "type": "Inclusion",
         "weight_grams": 140,
         "percentage": 14
       }
