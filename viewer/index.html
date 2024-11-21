@@ -23,6 +23,7 @@
   <div class="container">
     <h1 id="name">Bread Viewer</h1>
     <div class="section">
+      <!-- Content will be dynamically added -->
     </div>
     <div id="content">
       <p>Loading...</p>
@@ -30,8 +31,11 @@
   </div>
 
   <script>
-        // Check if the user is on the index page
-    const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+    // Check if the user is on the index page
+    const currentPath = window.location.pathname;
+    const isIndex = currentPath.endsWith("index.html") || 
+                    currentPath === "/" || 
+                    currentPath.endsWith("/viewer/");
 
     if (isIndex) {
       const paragraph = `
