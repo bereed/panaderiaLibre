@@ -18,7 +18,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   padding-left: 99%; /* Additional adjustment */
-  padding-right: 5%; /* Reduce the gap */
+  padding-right: -50%; /* Reduce the gap */
   color: #555; /* Matches .container text color */
 }
 
