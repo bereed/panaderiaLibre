@@ -1,6 +1,7 @@
 /* Banner Styles */
 .banner {
   background-color: white; /* Matches .container background */
+  margin: auto; /* Matches .container margin */
   padding: 20px; /* Matches .container padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Matches .container shadow */
   border-radius: 10px; /* Matches .container border radius */
