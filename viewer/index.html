@@ -33,10 +33,10 @@
   <script>
     // Check if the user is on the index page
     const currentPath = window.location.pathname;
-    const isIndex = currentPath.endsWith("index.html") || 
-                    currentPath === "/" || 
-                    currentPath.endsWith("/viewer/");
-
+    const hasQueryParams = window.location.search.length > 0; // Checks for query parameters like ?data=
+    const isIndex = 
+      (currentPath.endsWith("index.html") || currentPath === "/" || currentPath.endsWith("/viewer/")) && 
+      !hasQueryParams; // Exclude pages with query parameters
     if (isIndex) {
       const paragraph = `
         <p>
