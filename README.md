@@ -54,8 +54,7 @@ Append a ?formula= query string to the URL with the JSON file path.
 
 Example:
 
-file:///path/to/index.html?formula=https://bereed.github.io/panaderiaLibre/products/buttermilk-sourdough-products.json
-
+https://bereed.github.io/panaderiaLibre/viewer/?data=https%3A%2F%2Fbereed.github.io%2FpanaderiaLibre%2Fformulas%2Fbasic.json
 
 
 4. Explore Categories:
