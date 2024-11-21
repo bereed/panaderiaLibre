@@ -23,18 +23,6 @@
   <div class="container">
     <h1 id="name">Bread Viewer</h1>
     <div class="section">
-      <p>
-        Welcome to <strong>Panaderia Libre</strong>, an open-source bakery dedicated to empowering bread enthusiasts, bakers, and hobbyists to share, learn, and collaborate. 
-        Here, we provide meticulously crafted bread formulas, ready-to-make recipes, and specialty mixtures designed to inspire creativity and community. 
-        By embracing open-source principles, we aim to make baking knowledge accessible to all, encouraging innovation and the sharing of ideas. 
-      </p>
-      <p>
-        You won’t have to scroll through a soul-searching odyssey about how we discovered the sublime cosmic gaze of sourdough in the basement of a Tibetan monastery, where a wise monk handed us an ancient starter and told us it carried the memories of a thousand generations of bread. 
-        Just straightforward bread formulas, tools, and information to help you bake with confidence and creativity.
-      </p>
-      <p>
-        Browse through our library of formulas below. 
-      </p>
     </div>
     <div id="content">
       <p>Loading...</p>
@@ -42,6 +30,27 @@
   </div>
 
   <script>
+        // Check if the user is on the index page
+    const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+
+    if (isIndex) {
+      const paragraph = `
+        <p>
+          Welcome to <strong>Panaderia Libre</strong>, an open-source bakery dedicated to empowering bread enthusiasts, bakers, and hobbyists to share, learn, and collaborate. 
+          Here, we provide meticulously crafted bread formulas, ready-to-make recipes, and specialty mixtures designed to inspire creativity and community. 
+          By embracing open-source principles, we aim to make baking knowledge accessible to all, encouraging innovation and the sharing of ideas. 
+        </p>
+        <p>
+          You won’t have to scroll through a soul-searching odyssey about how we discovered the sublime cosmic gaze of sourdough in the basement of a Tibetan monastery, where a wise monk handed us an ancient starter and told us it carried the memories of a thousand generations of bread. 
+          Just straightforward bread formulas, tools, and information to help you bake with confidence and creativity.
+        </p>
+        <p>
+          Browse through our library of formulas below. 
+        </p>
+      `;
+      document.querySelector(".section").insertAdjacentHTML("afterbegin", paragraph);
+    }
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
         .then(registration => console.log('Service Worker registered:', registration.scope))
