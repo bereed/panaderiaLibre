@@ -17,6 +17,7 @@
   animation: scroll 15s linear infinite;
   font-size: 1.2rem;
   font-weight: bold;
+  padding-left: 20%; /* Additional adjustment */
   color: #555; /* Matches .container text color */
 }
 
