@@ -1,7 +1,10 @@
 /* Banner Styles */
 .banner {
-  background-color: #f7e7d2;
-  padding: 0.5rem 0;
+  background-color: white; /* Matches .container background */
+  padding: 20px; /* Matches .container padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Matches .container shadow */
+  border-radius: 10px; /* Matches .container border radius */
+  margin-bottom: 20px; /* Adds spacing below banner */
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
@@ -12,6 +15,7 @@
   animation: scroll 15s linear infinite;
   font-size: 1.2rem;
   font-weight: bold;
+  color: #555; /* Matches .container text color */
 }
 
 @keyframes scroll {
