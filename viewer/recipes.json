@@ -12,7 +12,8 @@
         { "name": "Chocolate Tart Cherry", "url": "https://bereed.github.io/panaderiaLibre/products/chocolate-tart-cherry-sourdough.json" },
         { "name": "Black Walnut Cranberry", "url": "https://bereed.github.io/panaderiaLibre/products/black-walnut-cranberry-sourdough.json" },
         { "name": "Buttermilk", "url": "https://bereed.github.io/panaderiaLibre/products/buttermilk-sourdough.json" },
-        { "name": "Stuffing", "url": "https://bereed.github.io/panaderiaLibre/products/stovetop-stuffing.json" }
+        { "name": "Stuffing", "url": "https://bereed.github.io/panaderiaLibre/products/stovetop-stuffing.json" },
+        { "name": "Focaccia", "url": "https://bereed.github.io/panaderiaLibre/products/focaccia-sourdough.json" }
     ],
     "mixtures": [
       { "name": "Stuffing Seasoning", "url": "https://bereed.github.io/panaderiaLibre/mixtures/stuffing-seasoning-blend.json" }
