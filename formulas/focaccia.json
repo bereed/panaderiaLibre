@@ -1,8 +1,8 @@
 {
   "pk": "formula-collection",
-  "sk": "focaccia",
+  "sk": "Focaccia",
   "metadata": {
-    "recipe_name": "focaccia",
+    "recipe_name": "Focaccia",
     "recipe_type": "Sourdough",
     "author": "Panaderia Libre",
     "created_date": "2024-11-16",
@@ -66,12 +66,13 @@
   },
   "instructions": {
     "making": [
-      "Mix all ingredients together until combined.",
-      "If using inclusions, add them during the second stretch and fold.",
+      "Mix all ingredients, reserving 90 grams of the water, together until combined.",
       "Knead the dough for 10 minutes.",
+      "Slowly add in the remaining water.",
       "Let the dough rise at room temperature for 4 hours.",
       "Shape the dough and place it in a focaccia pan",
-      "Proof in the refrigerator overnight.",
+      "Proof until it has light and airy, about 1 hour to 1 hour and a half.",
+      "Dimple with your fingers, add inclusions, olive oil, and flaked salt.",
       "Bake at 230°C (450°F) for 30-35 minutes."
     ],
     "storage": [
